@@ -1,0 +1,210 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Core palette - Midnight & Gold */
+    --background: 222 47% 6%;
+    --foreground: 45 30% 95%;
+
+    --card: 222 40% 10%;
+    --card-foreground: 45 30% 95%;
+
+    --popover: 222 40% 8%;
+    --popover-foreground: 45 30% 95%;
+
+    /* Gold accent - Legal prestige */
+    --primary: 42 85% 55%;
+    --primary-foreground: 222 47% 6%;
+
+    /* Slate secondary */
+    --secondary: 222 30% 18%;
+    --secondary-foreground: 45 20% 85%;
+
+    --muted: 222 30% 15%;
+    --muted-foreground: 220 15% 55%;
+
+    --accent: 222 35% 20%;
+    --accent-foreground: 45 30% 95%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 222 30% 18%;
+    --input: 222 30% 15%;
+    --ring: 42 85% 55%;
+
+    --radius: 0.75rem;
+
+    /* Extended palette */
+    --gold: 42 85% 55%;
+    --gold-light: 45 90% 70%;
+    --gold-dark: 40 80% 40%;
+    
+    --midnight: 222 47% 6%;
+    --midnight-light: 222 40% 12%;
+    --midnight-lighter: 222 35% 18%;
+    
+    --success: 152 69% 45%;
+    --success-foreground: 0 0% 100%;
+    
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 0%;
+
+    /* Gradients */
+    --gradient-gold: linear-gradient(135deg, hsl(42, 85%, 55%) 0%, hsl(38, 90%, 45%) 100%);
+    --gradient-midnight: linear-gradient(180deg, hsl(222, 47%, 8%) 0%, hsl(222, 47%, 4%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(222, 40%, 12%) 0%, hsl(222, 40%, 8%) 100%);
+    --gradient-hero: radial-gradient(ellipse at top, hsl(222, 40%, 15%) 0%, hsl(222, 47%, 6%) 70%);
+    --gradient-glow: radial-gradient(circle, hsl(42, 85%, 55%, 0.15) 0%, transparent 70%);
+
+    /* Shadows */
+    --shadow-sm: 0 2px 8px hsl(222, 47%, 4%, 0.3);
+    --shadow-md: 0 4px 20px hsl(222, 47%, 4%, 0.4);
+    --shadow-lg: 0 8px 40px hsl(222, 47%, 4%, 0.5);
+    --shadow-gold: 0 4px 30px hsl(42, 85%, 55%, 0.25);
+
+    /* Sidebar */
+    --sidebar-background: 222 40% 8%;
+    --sidebar-foreground: 45 20% 85%;
+    --sidebar-primary: 42 85% 55%;
+    --sidebar-primary-foreground: 222 47% 6%;
+    --sidebar-accent: 222 35% 15%;
+    --sidebar-accent-foreground: 45 30% 95%;
+    --sidebar-border: 222 30% 15%;
+    --sidebar-ring: 42 85% 55%;
+  }
+
+  .dark {
+    /* Already dark by default */
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', Georgia, serif;
+    @apply tracking-tight;
+  }
+}
+
+@layer components {
+  .text-gradient-gold {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, hsl(42, 85%, 60%) 0%, hsl(45, 90%, 75%) 50%, hsl(42, 85%, 55%) 100%);
+  }
+
+  .bg-gradient-gold {
+    background: var(--gradient-gold);
+  }
+
+  .bg-gradient-midnight {
+    background: var(--gradient-midnight);
+  }
+
+  .bg-gradient-card {
+    background: var(--gradient-card);
+  }
+
+  .bg-gradient-hero {
+    background: var(--gradient-hero);
+  }
+
+  .shadow-gold {
+    box-shadow: var(--shadow-gold);
+  }
+
+  .glass {
+    @apply backdrop-blur-xl bg-card/60 border border-border/50;
+  }
+
+  .glass-strong {
+    @apply backdrop-blur-2xl bg-card/80 border border-border/60;
+  }
+
+  .glow-gold {
+    box-shadow: 0 0 60px hsl(42, 85%, 55%, 0.2);
+  }
+
+  .hover-lift {
+    @apply transition-all duration-300;
+  }
+
+  .hover-lift:hover {
+    @apply -translate-y-1;
+    box-shadow: var(--shadow-lg);
+  }
+}
+
+@layer utilities {
+  .animate-fade-up {
+    animation: fadeUp 0.6s ease-out forwards;
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-out forwards;
+  }
+
+  .animate-scale-in {
+    animation: scaleIn 0.4s ease-out forwards;
+  }
+
+  .animate-glow-pulse {
+    animation: glowPulse 3s ease-in-out infinite;
+  }
+
+  @keyframes fadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes scaleIn {
+    from {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  @keyframes glowPulse {
+    0%, 100% {
+      box-shadow: 0 0 40px hsl(42, 85%, 55%, 0.15);
+    }
+    50% {
+      box-shadow: 0 0 80px hsl(42, 85%, 55%, 0.25);
+    }
+  }
+}
