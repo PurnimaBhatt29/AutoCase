@@ -6,10 +6,9 @@ AutoCase is an intelligent legal assistant that leverages **multi-agent AI colla
 
 ## 🎥 Demo Video
 
-<video width="720" controls>
+
   <source src="https://drive.google.com/file/d/1KDLcvNMHEYrs46kWUWUWkY2xRWh9hVKo/view?usp=sharing" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
+
 
 
 ## 🚀 Features
